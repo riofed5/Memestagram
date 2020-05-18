@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memestagram</title>
+    <link rel="shortcut icon" href="instalogo.png"/>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css" rel="stylesheet"/>
+    <link href="./css/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="main-container">
+    <nav>
+        <div class="nav-items">
+            <div class="nav-left">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+                <div class="logo-divider"></div>
+                <h3>Memestagram</h3>
+            </div>
+            <div class="nav-middle">
+                <input class="seach-user" value="" type="text" placeholder="Search" required/>
+            </div>
+            <div class="nav-right">
+                <i aria-hidden="true" class="fa fa-user" id="personal-icon">
+                    <div class="hide" id="personal-options">
+                        <div class="log-out" id="log-out">Log out</div>
+                    </div>
+                </i>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="post-image">
+            <button>+</button>
+        </div>
+        <main class="hide">
+            <div class="main-posts-div" id="main-posts-div">
+                <!--List of images-->
+            </div>
+            <div class="modal hide" id="post-modal">
+                <a class="close" href="#">X</a>
+                <div class="modal-card">
+                    <div class="image-container preview">
+                        <img style="display: none;" alt="" src="">
+                        <video style="display: none" width="400" controls></video>
+                    </div>
+                    <div class="info">
+                        <div class="new-post">
+                            <form class="post-form" enctype="multipart/form-data" id="add-image-form">
+                                <input class="owner hide" name="owner" value="">
+                                <div>
+                                    <label class="custom-file-upload">
+                                        <i class="fa fa-cloud-upload"></i> File Upload
+                                        <input accept=".jpeg,.jpg,.mp4,.png" class="hide"
+                                               id="inpFile"
+                                               name="image"
+                                               placeholder="Choose file"
+                                               required
+                                               type="file"/>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input name="name" placeholder="Add description..." required
+                                           type="text"/>
+                                </div>
+                                <div>
+                                    <select name="privacy" required>
+                                        <option value="no">Public</option>
+                                        <option value="yes">Private</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <button type="submit">Share</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div class="hide modal" id="image-modal">
+            <a class="close" href="#">X</a>
+            <div class="modal-card">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./js/serialize.js"></script>
+<script src="./js/personal.js"></script>
+<script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memestagram</title>
+    <link rel="shortcut icon" href="instalogo.png"/>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css" rel="stylesheet"/>
+    <link href="./css/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="main-container">
+    <nav>
+        <div class="nav-items">
+            <div class="nav-left">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+                <div class="logo-divider"></div>
+                <h3>Memestagram</h3>
+            </div>
+            <div class="nav-middle">
+                <input class="light-border" value="" type="text" placeholder="Search" required/>
+            </div>
+            <div class="nav-right">
+                <i aria-hidden="true" class="fa fa-user" id="personal-icon">
+                    <div class="hide" id="personal-options">
+                        <div id="personal-page">Personal</div>
+                        <div class="light-border" id="log-out">Log out</div>
+                    </div>
+                </i>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div id="auth-wrapper">
+            <div class="title">
+                <h3 class="selected-title" id="login-title">Login</h3>
+                <h3 id="register-title">Register</h3>
+            </div>
+            <form class="login-form" id="login-form">
+                <div>
+                    <span><i class="fa fa-envelope"></i></span>
+                    <input class="light-border" name="username" placeholder="Email" required type="text"/>
+                </div>
+                <div>
+                    <span><i class="fa fa-unlock"></i></span>
+                    <input class="light-border" name="password" placeholder="Password" required type="password"/>
+                </div>
+                <div>
+                    <button class="light-border" type="submit">Log In</button>
+                </div>
+            </form>
+            <form class="login-form hide" id="add-user-form">
+                <div>
+                    <span><i class="fa fa-user"></i></span>
+                    <input class="light-border"
+                           type="text"
+                           name="name"
+                           pattern=".{3,}"
+                           placeholder="Name"
+                           required/>
+                </div>
+                <div>
+                    <span><i class="fa fa-envelope"></i></span>
+                    <input class="light-border" name="username" placeholder="Email" required type="email"/>
+                </div>
+                <div>
+                    <span><i class="fa fa-unlock"></i></span>
+                    <input class="light-border" type="password" name="password" pattern="(?=.*[A-Z]).{8,}"
+                           placeholder="Password" required/>
+                </div>
+                <div>
+                    <button class="light-border" type="submit">Register</button>
+                </div>
+            </form>
+        </div>
+        <main class="hide">
+            <div class="main-posts-div" id="main-posts-div">
+                <!--List of images-->
+            </div>
+        </main>
+        <div class="hide modal" id="image-modal">
+            <a class="close" href="#">X</a>
+            <div class="modal-card">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./js/serialize.js"></script>
+<script src="./js/homepage.js"></script>
+<script src="./js/main.js"></script>
+</body>
+</html>
