@@ -1,5 +1,6 @@
 'use strict';
-const url = 'http://localhost:3000'; //IP server
+const url = 'http://localhost:3000'; 
+const s3bucketURL = 'link to your own s3 bucket';
 
 // select existing html elements
 const mainPostsDiv = document.querySelector('main div');
@@ -88,16 +89,16 @@ const createImageCards = (images) => {
             let img;
             if (!image.filename.includes('mp4')) {
                 img = document.createElement('img');
-                img.src = 'https://memewebmedia.s3.eu-central-1.amazonaws.com/' + image.filename;
+                img.src = s3bucketURL + image.filename;
                 img.alt = image.name;
-                img.classList.add('resp');
+                img.style.width = '700px';
             } else {
                 img = document.createElement('video');
                 const sourceMP4 = document.createElement("source");
                 sourceMP4.type = "video/mp4";
-                sourceMP4.src = 'https://memewebmedia.s3.eu-central-1.amazonaws.com/' + image.filename;
+                sourceMP4.src = s3bucketURL + image.filename;
                 img.appendChild(sourceMP4);
-                img.style.height = '400px';
+                img.style.width = '700px';
 
             }
 
@@ -188,7 +189,8 @@ const check = async () => {
     if (isUserExist.length === 0) {
         alert('Username is NOT correct!');
     } else {
-        const response = await fetch(url + `/image/test/username/${idLogin}/${sessionStorage.getItem('search')}`);
+        const userName = sessionStorage.getItem('search');
+        const response = await fetch(url + `/image/username/${idLogin}/${userName}`);
         const searchResult = await response.json();
         if (searchResult.length === 0) {
             alert('User has NOT posted anything! ^-^');
@@ -205,7 +207,7 @@ const getImage = async () => {
         };
         const userName = sessionStorage.getItem('search');
         const idLogin = sessionStorage.getItem('token');
-        const response = await fetch(url + `/image/test/username/${idLogin}/${userName}`, options);
+        const response = await fetch(url + `/image/username/${idLogin}/${userName}`, options);
         const images = await response.json();
         createImageCards(images);
         if (window.location.pathname != "/visit") {

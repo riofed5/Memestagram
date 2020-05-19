@@ -1,5 +1,7 @@
 'use strict';
-const url = 'http://localhost:3000'; // change url when uploading to server
+const url = 'http://localhost:3000'; 
+
+const s3bucketURL = 'link to your own s3 bucket';
 
 // select existing html elements
 const main = document.querySelector('main');
@@ -86,8 +88,6 @@ const createImageCards = (images) => {
         const countLike = image.likes;
         const countComment = image.comments;
         let likes, comments;
-        console.log("there in 89: ", image.filename)
-
 
         switch (countLike) {
             case 0:
@@ -119,16 +119,16 @@ const createImageCards = (images) => {
         let img;
         if (!image.filename.includes('mp4')) {
             img = document.createElement('img');
-            img.src = 'https://memewebmedia.s3.eu-central-1.amazonaws.com/' + image.filename;
+            img.src = s3bucketURL + image.filename;
             img.alt = image.name;
-            img.classList.add('resp');
+            img.style.width = '700px';
         } else {
             img = document.createElement('video');
             const sourceMP4 = document.createElement("source");
             sourceMP4.type = "video/mp4";
-            sourceMP4.src = 'https://memewebmedia.s3.eu-central-1.amazonaws.com/' + image.filename;
+            sourceMP4.src = s3bucketURL + image.filename;
             img.appendChild(sourceMP4);
-            img.style.height = '400px';
+            img.style.width = '700px';
         }
 
         // like selected image
@@ -210,7 +210,7 @@ const getImage = async () => {
             },
         };
         const userID = sessionStorage.getItem('token');
-        const response = await fetch(url + `/image/test/user/${userID}`, options);
+        const response = await fetch(url + `/image/userID/${userID}`, options);
         const images = await response.json();
         console.log('here',images)
         createImageCards(images);
@@ -251,7 +251,7 @@ addForm.addEventListener('submit', async (evt) => {
         body: fd,
     };
     
-    const response = await fetch(url + '/image/test', fetchOptions);
+    const response = await fetch(url + '/image/upload', fetchOptions);
     const json = await response.json();
     document.querySelector('#post-modal').classList.toggle('hide');
     const inputs = addForm.querySelectorAll('input');

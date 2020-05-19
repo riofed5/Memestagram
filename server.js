@@ -10,29 +10,17 @@ const path = require('path');
 
 const app = express();
 
-//Listening Connection
-// if (process.env.SERVER === 'dev_localhost') {
-//     require('./secure/localhost')(app);
-// } else {
-//     //Listen connection
-//     require('./secure/server')(app);
-//     app.listen(3000, () => {
-//         console.log("Server is waiting");
-//     });
-// }
-
 app.listen(3000,()=>{
-    console.log("new is waiting")
+    console.log("Connection is ready!")
 })
 
 //Extension
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use(express.static('public_html'));
 
-//Serving file in folders
-app.use('/uploads', express.static('uploads'));
+//Access file in named folder
+app.use(express.static('public_html'));
 app.use('/thumbnails', express.static('thumbnails'));
 
 //Using route for get API

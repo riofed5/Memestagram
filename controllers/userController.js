@@ -8,7 +8,7 @@ const user_list_get = async (req, res) => {
     res.json(users);
 };
 
-//Get a specific user
+//Get info by a specific user's name
 const user_get = async (req, res) => {
     const params= [req.params.name];
     const user= await userModel.getUser(params);

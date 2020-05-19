@@ -59,7 +59,7 @@ const createModal = async (postId, likes, isLiked, isPrivate) => {
         listComment += markup;
     });
 
-    const response = await fetch(url + `/image/test/${postId}`);
+    const response = await fetch(url + `/image/singlePost/${postId}`);
     const json = await response.json();
     modalCard.innerHTML = createModalCard(json, listComment, likes, mostFavorite, isLiked, isPrivate);
 
@@ -158,7 +158,6 @@ const postComment = () => {
             };
             const response = await fetch(url + '/comment', fetchOptions);
             const json = await response.json();
-            console.log('post-comment response', json);
             let listComment = '';
             const comments = await getCommentbyIDpost(selectedPost);
 
