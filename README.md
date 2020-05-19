@@ -6,7 +6,7 @@ is in a family and share to save every moment of each’s daily basics.
 
 ## Requirement list before run this application:
 * Node server
-* Amazon web service (AWS) S3. Instruction of setup S3  [this](https://medium.com/@imranhsayed/how-to-create-a-user-and-bucket-amazon-web-services-aws-40631416e65) 
+* Amazon web service (AWS) S3. Instruction of setup S3 at [here](https://medium.com/@imranhsayed/how-to-create-a-user-and-bucket-amazon-web-services-aws-40631416e65) 
 
 ## Instruction feature
 * Anonymous mode:
@@ -23,7 +23,7 @@ is in a family and share to save every moment of each’s daily basics.
 ### Run the app
 * Clone the repo
 * Install packages: `npm install`
-* Edit variable s3bucketURL in personal.js, homepage.js, visit.js in public_html/js by your endpoint s3 bucket which is normally is https:{your-bucket-name}.s3.{your-region-bucket}.amazonaws.com/
+* Edit variable `s3bucketURL` in `personal.js`, `homepage.js`, `visit.js` in folder `public_html/js` by your endpoint s3 bucket which is normally `https:{your-bucket-name}.s3.{your-region-bucket}.amazonaws.com/`
 * Edit the file .env as following instruction:
 
 ```
