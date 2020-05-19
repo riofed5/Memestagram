@@ -2,8 +2,6 @@
 Memestagram is built for everyone who is media-sharing enthusiast. Memestagram where everyone 
 is in a family and share to save every moment of each’s daily basics. 
 
-## [Link](https://www.figma.com/file/87f37pvp4HzDI5FEvyj5I3/Memestagram?node-id=46%3A0) to our mock ups. After getting to the website, there is a play button on the upper right hand side to actually view how our web works.
-
 ## Requirement list before run this application:
 * Node server
 * Amazon web service (AWS) S3. Instruction of setup S3 at [here](https://medium.com/@imranhsayed/how-to-create-a-user-and-bucket-amazon-web-services-aws-40631416e65) 
@@ -19,6 +17,11 @@ is in a family and share to save every moment of each’s daily basics.
 
 ### Database
 * Using a database using mySQL on AWS RDS 
+
+### Tech Stacks
+* Language: Javascript, Html/Css
+* Node JS
+* AWS RDS MySQL, AWS S3
 
 ### Run the app
 * Clone the repo
